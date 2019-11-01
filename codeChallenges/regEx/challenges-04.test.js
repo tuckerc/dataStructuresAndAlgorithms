@@ -13,7 +13,8 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const isNum = (input) => {
-  // Solution code here...
+  let regex = /\d/gm;
+  return regex.test(input);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -25,7 +26,9 @@ Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
 const isCapitalized = (str) => {
-  // Solution code here...
+  let regex = /[A-Z][a-z]*/gm;
+  let tempArr = str.matchAll(regex);
+  return tempArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -35,7 +38,9 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 ------------------------------------------------------------------------------------------------ */
 
 const citiesAtoJ = (arr) => {
-  // Solution code here...
+  let regex = /^[A - J]*/gm;
+  console.log(regex.exec(arr));
+  return regex.exec(arr);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -128,7 +133,6 @@ describe('Testing challenge 1', () => {
 describe('Testing challenge 2', () => {
   test('It should only return words that begin with a capital letter', () => {
     const capitalResult = isCapitalized('We only want to Return the Words that begin With a capital Letter');
-
     expect(capitalResult).toStrictEqual([ 'We', 'Return', 'Words', 'With', 'Letter' ]);
     expect(capitalResult.length).toStrictEqual(5);
 
