@@ -26,9 +26,12 @@ Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
 const isCapitalized = (str) => {
-  let regex = /[A-Z][a-z]*/gm;
-  let tempArr = str.matchAll(regex);
-  return tempArr;
+  let regex = /[A-Z][a-z]*/g;
+  let tempArr, copyArr = new Array();
+  while((tempArr = regex.exec(str)) !== null) {
+    copyArr.push(tempArr[0]);
+  }
+  return copyArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -38,9 +41,14 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 ------------------------------------------------------------------------------------------------ */
 
 const citiesAtoJ = (arr) => {
-  let regex = /^[A - J]*/gm;
-  console.log(regex.exec(arr));
-  return regex.exec(arr);
+  let regex = /^[A-J]\w+/;
+  let copyArr = new Array();
+  arr.forEach(city => {
+    if(regex.test(city)) {
+      copyArr.push(city);
+    }
+  });
+  return copyArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -56,7 +64,8 @@ Do not use the vertical bar (pipe) in your pattern.
 ------------------------------------------------------------------------------------------------ */
 
 const matchMonth = (input) => {
-  // Solution code here...
+  let regex = /\b[Oo]ct(ober)*\b/;
+  return regex.test(input);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -70,7 +79,12 @@ The expected output of "Hello, and have a wonderful day!" is ["and ", "have ", "
 ------------------------------------------------------------------------------------------------ */
 
 const noPunctuation = str => {
-  // Solution code here...
+  let regex = /[a-z0-9]+\s/gi;
+  let tempArr, copyArr = new Array();
+  while((tempArr = regex.exec(str)) !== null) {
+    copyArr.push(tempArr[0]);
+  }
+  return copyArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -86,7 +100,8 @@ For example, 'Welcome to Code 301!' will return 'W_lc_m_ t_ C_d_ 301!'.
 ------------------------------------------------------------------------------------------------ */
 
 let hangman = (str) => {
-  // Solution code here...
+  let regex = /[aeiou]/gi;
+  return regex[Symbol.replace](str, '_');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -102,7 +117,12 @@ Hint: All of these words end with the letters "ells".
 const seashells = 'She sells seashells by the seashore. The shells she sells are surely seashells. So if she sells shells on the seashore, I\'m sure she sells seashore shells.';
 
 const findShells = (str) => {
-  // Solution code here...
+  let regex = /s[(eash)(h)]*ells/g;
+  let tempArr, copyArr = new Array();
+  while(tempArr = regex.exec(str)) {
+    copyArr.push(tempArr[0]);
+  }
+  return copyArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
