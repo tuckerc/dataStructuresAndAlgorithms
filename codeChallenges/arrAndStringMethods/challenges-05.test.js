@@ -218,7 +218,23 @@ Similarly, extractVowels('The quick brown fox') returns ['Th qck brwn fx', 'eioo
 ------------------------------------------------------------------------------------------------ */
 
 const extractVowels = (str) => {
-  // Solution code here...
+  let tempArr = str.split('');
+  let vowels = new Array(); 
+  let noVowels = new Array();
+  tempArr.forEach(letter => {
+    if(letter.toLowerCase() === 'a' || letter.toLowerCase() === 'e' || letter.toLowerCase() === 'i' || letter.toLowerCase() === 'o' || letter.toLowerCase() === 'u') {
+      vowels.push(letter);
+    }
+    else {
+      noVowels.push(letter);
+    }
+  });
+  vowels.sort((a, b) => {
+    if(a > b) return 1;
+    else if(b > a) return -1;
+    else return 0;
+  });
+  return [noVowels.join(''),vowels.join('')];
 };
 
 /* ------------------------------------------------------------------------------------------------
