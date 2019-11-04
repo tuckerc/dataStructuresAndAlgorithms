@@ -26,9 +26,12 @@ Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
 const isCapitalized = (str) => {
-  let regex = /[A-Z][a-z]*/gm;
-  let tempArr = str.matchAll(regex);
-  return tempArr;
+  let regex = /[A-Z][a-z]*/g;
+  let tempArr, copyArr = new Array();
+  while((tempArr = regex.exec(str)) !== null) {
+    copyArr.push(tempArr[0]);
+  }
+  return copyArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -38,9 +41,14 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 ------------------------------------------------------------------------------------------------ */
 
 const citiesAtoJ = (arr) => {
-  let regex = /^[A - J]*/gm;
-  console.log(regex.exec(arr));
-  return regex.exec(arr);
+  let regex = /^[A-J]\w+/;
+  let copyArr = new Array();
+  arr.forEach(city => {
+    if(regex.test(city)) {
+      copyArr.push(city);
+    }
+  });
+  return copyArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
