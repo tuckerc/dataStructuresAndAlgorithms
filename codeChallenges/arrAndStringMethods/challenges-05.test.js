@@ -32,7 +32,7 @@ For example, wordsToCharList('gregor') returns ['g','r','e','g','o','r'].
 ------------------------------------------------------------------------------------------------ */
 
 const wordsToCharList = (arr) => {
-  // Solution code here...
+  return arr.split('');
 };
 
 
@@ -79,7 +79,12 @@ const gruffaloCrumble = {
 
 const listFoods = (recipe) => {
   let result = [];
-  // Solution code here...
+  let recipeArr = recipe.ingredients;
+  recipeArr.forEach(ingredient => {
+    let tempArr = ingredient.split(' ');
+    tempArr.splice(0,2);
+    result.push(tempArr.join(' '));
+  });
   return result;
 };
 
@@ -93,7 +98,12 @@ You may also use other string or array methods.
 
 const splitFoods = (recipe) => {
   let result = [];
-  // Solution code here...
+  let recipeArr = recipe.ingredients;
+  recipeArr.forEach(ingredient => {
+    let tempArr = ingredient.split(' ');
+    tempArr.splice(0,2);
+    result.push(tempArr.join(' '));
+  });
   return result;
 };
 
@@ -109,7 +119,12 @@ Return a new array containing just the verbs. For example, ['Mix until evenly di
 
 const stepActions = (recipe) => {
   let result = [];
-  // Solution code here...
+  let stepsArr = recipe.steps;
+  stepsArr.forEach(step => {
+    let tempArr = step.split(' ');
+    tempArr.splice(1);
+    result.push(tempArr.join(' '));
+  });
   return result;
 };
 
@@ -127,7 +142,9 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const removeEvenValues = (arr) => {
-  // Solution code here...
+  for(let i = arr.length; i >= 0; i--) {
+    if(arr[i] % 2 === 0) arr.splice(i, 1);
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -146,7 +163,13 @@ removeLastCharacters('Gregor', 9) returns ''
 ------------------------------------------------------------------------------------------------ */
 
 const removeLastCharacters = (str, numberOfCharacters) => {
-  // Solution code here...
+  if(numberOfCharacters > str.length) return '';
+  else if(numberOfCharacters < 0) return str;
+  else {
+    let tempArr = str.split('');
+    tempArr.splice((-numberOfCharacters));
+    return tempArr.join('');
+  }
 };
 
 
@@ -158,7 +181,10 @@ Write a function named totalSumCSV that, given a string of comma-separated value
 
 const totalSumCSV = (str) => {
   let total = 0;
-  // Solution code here...
+  let tempArr = str.split(',');
+  tempArr.forEach(num => {
+    total += Number(num);
+  });
   return total;
 };
 
@@ -172,7 +198,13 @@ For example, removeVowels('gregor') returns 'grgr'.
 ------------------------------------------------------------------------------------------------ */
 
 const removeVowels = (str) => {
-  // Solution code here...
+  let tempArr = str.split('');
+  for(let i = tempArr.length-1; i >=0; i--) {
+    if(tempArr[i].toLowerCase() === 'a' || tempArr[i].toLowerCase() === 'e' || tempArr[i].toLowerCase() === 'i' || tempArr[i].toLowerCase() === 'o' || tempArr[i].toLowerCase() === 'u') {
+      tempArr.splice(i,1);
+    } 
+  }
+  return tempArr.join('');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -186,7 +218,23 @@ Similarly, extractVowels('The quick brown fox') returns ['Th qck brwn fx', 'eioo
 ------------------------------------------------------------------------------------------------ */
 
 const extractVowels = (str) => {
-  // Solution code here...
+  let tempArr = str.split('');
+  let vowels = new Array(); 
+  let noVowels = new Array();
+  tempArr.forEach(letter => {
+    if(letter.toLowerCase() === 'a' || letter.toLowerCase() === 'e' || letter.toLowerCase() === 'i' || letter.toLowerCase() === 'o' || letter.toLowerCase() === 'u') {
+      vowels.push(letter);
+    }
+    else {
+      noVowels.push(letter);
+    }
+  });
+  vowels.sort((a, b) => {
+    if(a > b) return 1;
+    else if(b > a) return -1;
+    else return 0;
+  });
+  return [noVowels.join(''),vowels.join('')];
 };
 
 /* ------------------------------------------------------------------------------------------------
