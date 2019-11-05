@@ -140,7 +140,14 @@ For example: [{ house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }, ..
 
 const houseSize = (arr) => {
   const sizes = [];
-  // Solution code here...
+  for(let k in arr) {
+    let obj = new Object();
+    obj.house = arr[k].house;
+    obj.members = 1;
+    if(arr[k].spouse) obj.members++;
+    if(arr[k].children) obj.members+=arr[k].children.length;
+    sizes.push(obj);
+  }
   return sizes;
 };
 
@@ -164,7 +171,17 @@ const deceasedSpouses = ['Catelyn', 'Lysa', 'Robert', 'Khal Drogo', 'Alerie'];
 
 const houseSurvivors = (arr) => {
   const survivors = [];
-  // Solution code here...
+  for(let l in arr) {
+    let obj = new Object();
+    obj.house = arr[l].house;
+    obj.members = 1;
+    for(let m in deceasedSpouses) {
+      if(arr[l].spouse === deceasedSpouses[m]) arr[l].spouse = '';
+    }
+    if(arr[l].spouse) obj.members++;
+    if(arr[l].children) obj.members+=arr[l].children.length;
+    survivors.push(obj);
+  }
   return survivors;
 };
 
