@@ -33,7 +33,14 @@ For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 ------------------------------------------------------------------------------------------------ */
 
 const totalSum = (input) => {
-  // Solution code here...
+  let sum = 0;
+  input.forEach(arr => {
+    sum += arr.reduce((accumulator, val) => {
+      accumulator += val;
+      return accumulator;
+    },0);
+  });
+  return sum;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -49,7 +56,12 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 ------------------------------------------------------------------------------------------------ */
 
 const divisibleByFiveTwoToThePower = (input) => {
-  // Solution code here...
+  let newArr = [];
+  input.forEach(arr => {
+    const modArr = arr.filter(val => (typeof(val) === 'number' && !(val % 5)));
+    newArr.push(modArr.map(val => Math.pow(2, val)));
+  });
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -115,7 +127,13 @@ let starWarsData = [{
 }];
 
 let findMaleAndFemale = (data) => {
-  // Solution code here...
+  return data.reduce((accumulator, character, idx) => {
+    if(character.gender === 'male' || character.gender === 'female') {
+      if(idx < (data.length - 1)) accumulator += `${character.name} and `;
+      else accumulator += character.name;
+    }
+    return accumulator;
+  },'');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -125,7 +143,12 @@ Write a function named findShortest that, given the Star Wars data from Challeng
 ------------------------------------------------------------------------------------------------ */
 
 let findShortest = (data) => {
-  // Solution code here...
+  return data.reduce((accumulator, character) => {
+    if(character.height > accumulator.height) {
+      accumulator.name = character.name;
+      accumulator.height = character.height;
+    }
+  },{ name: '', height: 0}).name;
 };
 
 /* ------------------------------------------------------------------------------------------------
