@@ -25,7 +25,7 @@ For example, ['Alphabet', 'Zebra', 'alphabet', 'carrot'] is correctly sorted.
 
 const alphabetize = (arr) => {
   arr.sort((a,b) => {
-    return a > b;
+    return a.charCodeAt(0) - b.charCodeAt(0);
   });
   return arr;
 };
@@ -38,7 +38,7 @@ Write a function named sortByLength that takes in an array of strings and return
 
 const sortByLength = (arr) => {
   arr.sort((a, b) => {
-    return a.length > b.length;
+    return a.length - b.length;
   });
   return arr;
 };
@@ -53,7 +53,11 @@ For example, ['Alphabet', 'alphabet', 'carrot', 'Zebra'] is correctly sorted, an
 
 const alphabetizeBetter = (arr) => {
   arr.sort((a, b) => {
-    return a.toUpperCase() > b.toUpperCase();
+    const aUpper = a.toUpperCase();
+    const bUpper = b.toUpperCase();
+    if(aUpper < bUpper) return -1;
+    else if(aUpper > bUpper) return 1;
+    else return 0;
   });
   return arr;
 };
@@ -73,7 +77,7 @@ Here is an example of the input:
 
 const sortByPrice = (arr) => {
   arr.sort((a, b) => {
-    return a.price > b.price;
+    return a.price - b.price;
   });
   return arr;
 };
@@ -88,7 +92,7 @@ For example, [1, 14, 0.2, -281, 54782] is only correctly sorted in that order.
 
 const sortNumbersByLength = (arr) => {
   arr.sort((a, b) => {
-    return new String(a).length > new String(b).length;
+    return new String(a).length - new String(b).length;
   });
   return arr;
 };
@@ -113,7 +117,11 @@ const people = [
 
 const sortPeople = (arr) => {
   arr.sort((a, b) => {
-    return a.lastName > b.lastName;
+    const aLastUpper = a.lastName.toUpperCase();
+    const bLastUpper = b.lastName.toUpperCase();
+    if(aLastUpper < bLastUpper) return -1;
+    else if(aLastUpper > bLastUpper) return 1;
+    else return 0;
   });
   return arr;
 };
@@ -130,13 +138,19 @@ If two people have the same full name, the younger one should come first. Do not
 
 const sortPeopleBetter = (arr) => {
   arr.sort((a, b) => {
-    if(a.firstName === b.firstName && a.lastName === b.lastName) {
-      return a.age > b.age;
+    const aLastUpper = a.lastName.toUpperCase();
+    const bLastUpper = b.lastName.toUpperCase();
+    if(aLastUpper < bLastUpper) return -1;
+    else if(aLastUpper > bLastUpper) return 1;
+    else {
+      const aFirstUpper = a.firstName.toUpperCase();
+      const bFristUpper = b.firstName.toUpperCase();
+      if(aFirstUpper < bFristUpper) return -1;
+      else if(aFirstUpper > bFristUpper) return 1;
+      else {
+        return a.age - b.age;
+      }
     }
-    else if(a.lastName === b.lastName) {
-      return a.firstName > b.firstName;
-    }
-    else return a.lastName > b.lastName;
   });
   return arr;
 };
@@ -168,7 +182,7 @@ const sortMeetingsByDay = (arr) => {
   let orderedDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
 
   arr.sort((a, b) => {
-    return orderedDays.indexOf(a.dayOfWeek) > orderedDays.indexOf(b.dayOfWeek);
+    return orderedDays.indexOf(a.dayOfWeek) - orderedDays.indexOf(b.dayOfWeek);
   });
   return arr;
 };
@@ -188,13 +202,19 @@ const sortSchedule = (arr) => {
   let orderedDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
 
   arr.sort((a, b) => {
-    return a.start > b.start;
-  });
-  arr.sort((a, b) => {
-    return (a.end - a.start) > (b.end - b.start);
-  });
-  arr.sort((a, b) => {
-    return orderedDays.indexOf(a.dayOfWeek) > orderedDays.indexOf(b.dayOfWeek);
+    if(orderedDays.indexOf(a.dayOfWeek) < orderedDays.indexOf(b.dayOfWeek)) return -1;
+    else if(orderedDays.indexOf(a.dayOfWeek) > orderedDays.indexOf(b.dayOfWeek)) return 1;
+    else {
+      if(Number(a.start) < Number(b.start)) return -1;
+      else if(Number(a.start) > Number(b.start)) return 1;
+      else {
+        const aLength = Number(a.end) - Number(a.start);
+        const bLength = Number(b.end) - Number(b.start);
+        if(aLength < bLength) return -1;
+        else if(aLength > bLength) return 1;
+        else return 0;
+      }
+    }
   });
   return arr;
 };
