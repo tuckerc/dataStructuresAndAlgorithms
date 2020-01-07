@@ -5,10 +5,10 @@ public class ArrayReverse {
 
     /* run arrayReverse with testArr as argument
     ** and assign the value to testArr */
-    testArr = arrayReverse(testArr);
+    int[] newArr = arrayReverse(testArr);
 
     // print reversed array
-    for(int el : testArr) {
+    for(int el : newArr) {
       System.out.print(el + " ");
     }
     System.out.println();
