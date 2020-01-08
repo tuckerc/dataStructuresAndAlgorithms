@@ -1,5 +1,6 @@
 # Repo For Data Structures and Algorithms Practice
 
+## [Code 301 Challenges](./code301Challenges/)
 ## code301Challenges
 ### JavaScript primitive and array method code challenges
 - #### 2D Arrays
