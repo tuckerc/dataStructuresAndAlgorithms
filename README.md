@@ -1,21 +1,7 @@
 # Repo For Data Structures and Algorithms Practice
 
 ## [Code 301 Challenges](./code301Challenges/)
-## code301Challenges
 ### JavaScript primitive and array method code challenges
-- #### 2D Arrays
-- #### Array and string methods
-- #### chaining
-- #### Array.prototype.filter
-- #### Array.prototype.forEach
-- #### Array.prototype.map
-- #### Object iterators
-- #### Array.prototype.reduce
-- #### Regular expressions
-- #### Array.prototype.sort
-- #### Value vs. Reference
-- #### Summary challenge
 
-## code401Challenges
+## [Code 401 Challenges](./code401Challenges/)
 ### Java data structures and algorithms code challenges
-- #### reverse-array
