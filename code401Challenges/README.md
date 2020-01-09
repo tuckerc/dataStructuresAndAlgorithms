@@ -7,3 +7,4 @@ This root README is where the links to daily challenges lives.
 ## Week 1 Challenges
 * [Day 1: Reverse an Array](./readmes/reverseArray.md)
 * [Day 2: Shift an Array](./readmes/arrayShift.md)
+* [Day 3: Array Binary Search](./readmes/binarySearch.md)
