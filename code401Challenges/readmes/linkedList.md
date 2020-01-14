@@ -34,4 +34,4 @@ Write tests to prove the following functionality:
 7. Test
 
 ## Link to Code
-[ArrayReverse.java](../src/main/java/code401Challenges/LinkedList.java)
+[ArrayReverse.java](../src/main/java/code401Challenges/LinkedList/LinkedList.java)

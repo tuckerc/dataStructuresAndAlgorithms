@@ -1,4 +1,4 @@
-package code401Challenges;
+package code401Challenges.ArrayShift;
 
 public class ArrayShift {
     public static int[] insertShiftArray(int[] arr, int newVal) {

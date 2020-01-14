@@ -11,7 +11,7 @@ Write a function called reverseArray which takes an array as an argument. Withou
 4. Return the new array.
 
 ## Link to Code
-[ArrayReverse.java](../src/main/java/code401Challenges/ArrayReverse.java)
+[ArrayReverse.java](../src/main/java/code401Challenges/ArrayReverse/ArrayReverse.java)
 
 ## Solution
 ![White Board](../assets/reverseArrayPseudo.jpg)

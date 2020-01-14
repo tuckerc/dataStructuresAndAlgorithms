@@ -11,7 +11,7 @@ Write a function called insertShiftArray which takes in an array and the value t
 4. Return new array.
 
 ## Link to Code
-[ArrayShift.java](../src/main/java/code401Challenges/ArrayShift.java)
+[ArrayShift.java](../src/main/java/code401Challenges/ArrayShift/ArrayShift.java)
 
 
 ## Solution
