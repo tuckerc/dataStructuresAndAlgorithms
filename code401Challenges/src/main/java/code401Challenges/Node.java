@@ -3,7 +3,7 @@ package code401Challenges;
 public class Node<T> {
 
   private T value;
-  private Node next;
+  private Node<T> next;
 
   public Node() {
     this.next = null;
@@ -16,6 +16,13 @@ public class Node<T> {
 
   }
 
+  public Node(T nodeValue, Node<T> nextNode) {
+
+    this.value = nodeValue;
+    this.next = nextNode;
+
+  }
+
   public T getValue() {
     return (T) this.value;
   }
@@ -24,11 +31,11 @@ public class Node<T> {
     this.value = newValue;
   }
 
-  public Node getNext() {
+  public Node<T> getNext() {
     return this.next;
   }
 
-  public void setNext(Node newNext) {
+  public void setNext(Node<T> newNext) {
     this.next = newNext;
   }
 
