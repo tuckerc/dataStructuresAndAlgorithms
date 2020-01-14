@@ -10,7 +10,7 @@ Write a function called BinarySearch which takes in 2 parameters: a sorted array
 4. If value is not found, return -1.
 
 ## Link to Code
-[ArrayReverse.java](../src/main/java/code401Challenges/BinarySearch.java)
+[ArrayReverse.java](../src/main/java/code401Challenges/BinarySearch/BinarySearch.java)
 
 ## Solution
 ![White Board](../assets/binarySearch.jpg)

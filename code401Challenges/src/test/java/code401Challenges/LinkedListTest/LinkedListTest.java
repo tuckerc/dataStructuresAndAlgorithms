@@ -1,12 +1,13 @@
-package code401Challenges;
+package code401Challenges.LinkedListTest;
 
+import code401Challenges.LinkedList.LinkedList;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class LinkedListTest {
 
-  LinkedList <Integer> testLinkedList;
+  LinkedList<Integer> testLinkedList;
   int newValue;
 
   @Before

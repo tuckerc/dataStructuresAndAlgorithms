@@ -1,8 +1,7 @@
-package code401Challenges;
+package code401Challenges.BinarySearchTest;
 
+import code401Challenges.BinarySearch.BinarySearch;
 import org.junit.Test;
-
-import java.util.Arrays;
 
 import static org.junit.Assert.*;
 

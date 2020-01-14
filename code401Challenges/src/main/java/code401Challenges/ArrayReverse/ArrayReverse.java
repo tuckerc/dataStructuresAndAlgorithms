@@ -1,3 +1,5 @@
+package code401Challenges.ArrayReverse;
+
 public class ArrayReverse {
   public static void main(String[] args) {
     // array to be used for testing
