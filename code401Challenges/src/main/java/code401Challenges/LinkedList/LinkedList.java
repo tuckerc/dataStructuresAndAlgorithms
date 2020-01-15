@@ -3,9 +3,19 @@ package code401Challenges.LinkedList;
 public class LinkedList <T> {
 
   private Node<T> head;
+  int size;
 
   public LinkedList() {
     this.head = null;
+    this.size = 0;
+  }
+
+  public int getSize() {
+    return size;
+  }
+
+  public void setSize(int size) {
+    this.size = size;
   }
 
   public Node<T> getHead() {
@@ -20,6 +30,7 @@ public class LinkedList <T> {
     Node<T> newNode = new Node <T> (val);
     newNode.setNext(this.getHead());
     this.setHead(newNode);
+    this.setSize(this.getSize() + 1);
   }
 
   public void append(T val) {
@@ -33,6 +44,7 @@ public class LinkedList <T> {
       currentNode = currentNode.getNext();
     }
     currentNode.setNext(newNode);
+    this.setSize(this.getSize() + 1);
   }
 
   public void insertBefore(T newVal, T refVal) {
@@ -45,6 +57,7 @@ public class LinkedList <T> {
         if ( currentNode.getNext().getValue() == refVal ) {
           Node<T> newNode = new Node<>(newVal, currentNode.getNext());
           currentNode.setNext(newNode);
+          this.setSize(this.getSize() + 1);
           return;
         }
         currentNode = currentNode.getNext();
@@ -61,6 +74,7 @@ public class LinkedList <T> {
         if ( currentNode.getValue() == refVal ) {
           Node<T> newNode = new Node<>(newVal, currentNode.getNext());
           currentNode.setNext(newNode);
+          this.setSize(this.getSize() + 1);
           return;
         }
         currentNode = currentNode.getNext();
@@ -68,6 +82,19 @@ public class LinkedList <T> {
     } else {
       throw new IllegalArgumentException("refVal not in the list");
     }
+  }
+
+  public T kthFromEnd(int k) {
+    if ( k > -1 && k > (this.getSize() - 1)) {
+      throw new IndexOutOfBoundsException("k cannot be greater then linked list size - 1");
+    }
+    Node<T> currentNode = this.getHead();
+    int iterations = this.getSize() - k - 1;
+    while (iterations > 0) {
+      currentNode = currentNode.getNext();
+      iterations--;
+    }
+    return currentNode.getValue();
   }
 
   public boolean includes(T val) {
