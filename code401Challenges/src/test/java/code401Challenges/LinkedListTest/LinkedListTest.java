@@ -97,6 +97,8 @@ public class LinkedListTest {
   @Test (expected = Exception.class)
   public void singleValueLinkedListKthFromEndException() {
     singleValueLinkedList.kthFromEnd(99);
+    singleValueLinkedList.kthFromEnd(1);
+    singleValueLinkedList.kthFromEnd(-1);
   }
 
 }
