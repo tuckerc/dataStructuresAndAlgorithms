@@ -22,6 +22,54 @@ public class LinkedList <T> {
     this.setHead(newNode);
   }
 
+  public void append(T val) {
+    Node<T> newNode = new Node<T> (val);
+    if ( this.getHead() == null) {
+      this.setHead(newNode);
+      return;
+    }
+    Node<T> currentNode = this.getHead();
+    while( currentNode.getNext() != null ) {
+      currentNode = currentNode.getNext();
+    }
+    currentNode.setNext(newNode);
+  }
+
+  public void insertBefore(T newVal, T refVal) {
+    if( this.includes(refVal) ) {
+      Node<T> currentNode = this.getHead();
+      if ( currentNode.getValue() == refVal ) {
+        this.insert(newVal);
+      }
+      while ( currentNode.getNext() != null ) {
+        if ( currentNode.getNext().getValue() == refVal ) {
+          Node<T> newNode = new Node<>(newVal, currentNode.getNext());
+          currentNode.setNext(newNode);
+          return;
+        }
+        currentNode = currentNode.getNext();
+      }
+    } else {
+      throw new IllegalArgumentException("refVal not in the list");
+    }
+  }
+
+  public void insertAfter(T newVal, T refVal) {
+    if( this.includes(refVal) ) {
+      Node<T> currentNode = this.getHead();
+      while ( currentNode != null ) {
+        if ( currentNode.getValue() == refVal ) {
+          Node<T> newNode = new Node<>(newVal, currentNode.getNext());
+          currentNode.setNext(newNode);
+          return;
+        }
+        currentNode = currentNode.getNext();
+      }
+    } else {
+      throw new IllegalArgumentException("refVal not in the list");
+    }
+  }
+
   public boolean includes(T val) {
     Node<T> currentNode = this.getHead();
     while(currentNode != null) {

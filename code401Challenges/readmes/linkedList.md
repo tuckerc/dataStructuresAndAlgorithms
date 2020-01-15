@@ -26,4 +26,7 @@ append Method
 ![append](../assets/appendsWhiteboard.jpg)
 
 insertBefore Method
-![insertBefore](../assets/insertBeforeWhiteboard.jpg)   
+![insertBefore](../assets/insertBeforeWhiteboard.jpg)
+
+insertAfter Method
+![insertAfter](../assets/insertAfter.jpg) 
