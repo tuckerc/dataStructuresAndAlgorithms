@@ -31,3 +31,8 @@ insertBefore Method
 
 insertAfter Method
 ![insertAfter](../assets/insertAfter.jpg) 
+
+kthFromTheEnd
+![kthFromTheEnd](../assets/kthFromEnd.jpg)
+
+
