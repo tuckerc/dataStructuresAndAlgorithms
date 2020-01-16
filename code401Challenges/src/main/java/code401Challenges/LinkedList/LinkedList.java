@@ -116,4 +116,14 @@ public class LinkedList <T> {
     valueString = valueString + "NULL";
     return valueString;
   }
+
+  public static LinkedList mergeLists(LinkedList firstList, LinkedList secondList) {
+    // create new list to store zipped nodes from two lists
+    LinkedList mergedList = new LinkedList();
+
+    // zip merge the two lists
+
+    // return the mergedList
+    return mergedList;
+  }
 }
