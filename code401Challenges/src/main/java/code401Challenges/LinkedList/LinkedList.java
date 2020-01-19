@@ -135,9 +135,26 @@ public class LinkedList <T> {
   }
 
   public static LinkedList mergeLists(LinkedList firstList, LinkedList secondList) {
-    //
+    if(firstList.getHead() != null && secondList.getHead() != null) {
+      // set the head of the first list to the result of _mergeNodes
+      firstList.setHead(_mergeNodes(firstList.getHead(), secondList.getHead()));
+      return firstList;
+    } else {
+      throw new IllegalArgumentException("You can't merge two empty lists");
+    }
+  }
 
-    // return the mergedList
-    return mergedList;
+  private static Node _mergeNodes(Node firstNode, Node secondNode) {
+    if ( firstNode == null ) {
+      return secondNode;
+    }
+    else if (secondNode == null) {
+      return firstNode;
+    } else {
+      Node remainingNods = _mergeNodes(firstNode.getNext(), secondNode.getNext());
+      secondNode.setNext(remainingNods);
+      firstNode.setNext(secondNode);
+      return firstNode;
+    }
   }
 }
