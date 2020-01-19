@@ -106,6 +106,23 @@ public class LinkedList <T> {
     return false;
   }
 
+  public void reverse() {
+    if(this.getHead() != null && this.getHead().getNext() != null) {
+      Node<T> previous = null;
+      Node<T> current = this.getHead();
+      Node<T> next = current.getNext();
+      while(current != null) {
+        current.setNext(previous);
+        previous = current;
+        current = next;
+        if(next != null) {
+          next = next.getNext();
+        }
+      }
+      this.setHead(previous);
+    }
+  }
+
   public String toString() {
     String valueString = "";
     Node<T> currentNode = this.getHead();
@@ -118,10 +135,7 @@ public class LinkedList <T> {
   }
 
   public static LinkedList mergeLists(LinkedList firstList, LinkedList secondList) {
-    // create new list to store zipped nodes from two lists
-    LinkedList mergedList = new LinkedList();
-
-    // zip merge the two lists
+    //
 
     // return the mergedList
     return mergedList;

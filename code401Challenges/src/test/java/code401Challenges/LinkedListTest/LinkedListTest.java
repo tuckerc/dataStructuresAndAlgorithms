@@ -101,4 +101,34 @@ public class LinkedListTest {
     singleValueLinkedList.kthFromEnd(-1);
   }
 
+  @Test
+  public void singleValueLinkedListReverse() {
+    String original = singleValueLinkedList.toString();
+    System.out.println("Single original: " + original);
+    singleValueLinkedList.reverse();
+    String expected = singleValueLinkedList.toString();
+    System.out.println("Single actual: " + expected);
+    assertEquals(original, expected);
+  }
+
+  @Test
+  public void multipleValueLinkedListReverse() {
+    String original = multipleValueList.toString();
+    System.out.println("multiple original: " + original);
+    multipleValueList.reverse();
+    String expected = multipleValueList.toString();
+    System.out.println("multiple actual: " + expected);
+    assertNotEquals(original, expected);
+  }
+
+  @Test
+  public void emptyListReverse() {
+    String original = emptyList.toString();
+    System.out.println("empty original: " + original);
+    emptyList.reverse();
+    String expected = emptyList.toString();
+    System.out.println("empty actual: " + expected);
+    assertEquals(original, expected);
+  }
+
 }
