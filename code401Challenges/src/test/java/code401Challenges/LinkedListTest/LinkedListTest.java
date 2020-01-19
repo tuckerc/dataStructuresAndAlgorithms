@@ -9,19 +9,28 @@ import static org.junit.Assert.*;
 public class LinkedListTest {
 
   LinkedList<Integer> singleValueLinkedList;
+  LinkedList<Integer> singleValueLinkedList2;
+
   Integer newValue;
 
   LinkedList<Integer> emptyList;
+  LinkedList<Integer> emptyList2;
   
   LinkedList<Integer> multipleValueList;
+  LinkedList<Integer> multipleValueList2;
 
   @Before
   public void setup() {
     singleValueLinkedList = new LinkedList<>();
     newValue = 5;
     singleValueLinkedList.insert(newValue);
+
+    singleValueLinkedList2 = new LinkedList<>();
+    newValue = 58;
+    singleValueLinkedList2.insert(newValue);
     
     emptyList = new LinkedList<>();
+    emptyList2 = new LinkedList<>();
     
     multipleValueList = new LinkedList<>();
     newValue = 6;
@@ -29,9 +38,19 @@ public class LinkedListTest {
     newValue = 8;
     multipleValueList.append(newValue);
     newValue = 12;
-    multipleValueList.insertBefore(newValue, (Integer) 8);
+    multipleValueList.insertBefore(newValue, 8);
     newValue = 5;
-    multipleValueList.insertAfter(newValue, (Integer) 6);
+    multipleValueList.insertAfter(newValue, 6);
+
+    multipleValueList2 = new LinkedList<>();
+    newValue = 67;
+    multipleValueList2.insert(newValue);
+    newValue = 48;
+    multipleValueList2.append(newValue);
+    newValue = 1642;
+    multipleValueList2.insertBefore(newValue, 48);
+    newValue = 598;
+    multipleValueList2.insertAfter(newValue, 67);
   }
 
   @Test
@@ -104,31 +123,54 @@ public class LinkedListTest {
   @Test
   public void singleValueLinkedListReverse() {
     String original = singleValueLinkedList.toString();
-    System.out.println("Single original: " + original);
     singleValueLinkedList.reverse();
     String expected = singleValueLinkedList.toString();
-    System.out.println("Single actual: " + expected);
     assertEquals(original, expected);
   }
 
   @Test
   public void multipleValueLinkedListReverse() {
     String original = multipleValueList.toString();
-    System.out.println("multiple original: " + original);
     multipleValueList.reverse();
     String expected = multipleValueList.toString();
-    System.out.println("multiple actual: " + expected);
     assertNotEquals(original, expected);
   }
 
   @Test
   public void emptyListReverse() {
     String original = emptyList.toString();
-    System.out.println("empty original: " + original);
     emptyList.reverse();
     String expected = emptyList.toString();
-    System.out.println("empty actual: " + expected);
     assertEquals(original, expected);
+  }
+
+  @Test ( expected = Exception.class)
+  public void testEmptyListsMerge() {
+    LinkedList.mergeLists(emptyList, emptyList2);
+  }
+
+  @Test
+  public void testMultipleValueListMerge() {
+    LinkedList.mergeLists(multipleValueList, multipleValueList2);
+    String expected = "( 6 ) -> ( 67 ) -> ( 5 ) -> ( 598 ) -> ( 12 ) -> ( 1642 ) -> ( 8 ) -> ( 48 ) -> NULL";
+    String actual = multipleValueList.toString();
+    assertEquals(expected, actual);
+  }
+
+  @Test
+  public void testSingleValueListMerge() {
+    String expected = "( 5 ) -> ( 58 ) -> NULL";
+    LinkedList.mergeLists(singleValueLinkedList, singleValueLinkedList2);
+    String actual = singleValueLinkedList.toString();
+    assertEquals(expected, actual);
+  }
+
+  @Test
+  public void testDifferentLengthListMerge() {
+    String expected = "( 6 ) -> ( 5 ) -> ( 5 ) -> ( 12 ) -> ( 8 ) -> NULL";
+    LinkedList.mergeLists(multipleValueList, singleValueLinkedList);
+    String actual = multipleValueList.toString();
+    assertEquals(expected, actual);
   }
 
 }

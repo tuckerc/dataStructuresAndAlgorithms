@@ -36,6 +36,7 @@ insertAfter Method
 kthFromTheEnd
 ![kthFromTheEnd](../assets/kthFromEnd.jpg)
 
-mergeLists
+mergeLists: Forgot to take picture of whiteboard :-(
+
 
 
