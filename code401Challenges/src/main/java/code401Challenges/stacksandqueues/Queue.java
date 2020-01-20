@@ -1,5 +1,7 @@
 package code401Challenges.stacksandqueues;
 
+import java.util.NoSuchElementException;
+
 public class Queue<T> {
 
   private Node<T> front;
@@ -12,60 +14,47 @@ public class Queue<T> {
     this.front.setNext(this.back);
   }
 
-
-  public Node<T> getFront() {
-    return this.front;
-  }
-
-  public void setFront(Node<T> front) {
-    this.front = front;
-  }
-
-  public Node<T> getBack() {
-    return this.back;
-  }
-
-  public void setBack(Node<T> back) {
-    this.back = back;
-  }
-
   public void enqueue(T val) {
     if (this.isEmpty()) {
-      this.getFront().setValue(val);
+      this.front.setValue(val);
     }
-    else if (this.getBack().getValue() == null) {
-      this.getBack().setValue(val);
+    else if (this.back.getValue() == null) {
+      this.back.setValue(val);
     } else {
       Node<T> newNode = new Node<>(val);
-      this.getBack().setNext(newNode);
-      this.setBack(newNode);
+      this.back.setNext(newNode);
+      this.back = newNode;
     }
   }
 
   public T dequeue() {
     if (this.isEmpty()) {
-      throw new NullPointerException("cannot dequeue. queue is empty");
+      throw new NoSuchElementException("cannot dequeue. queue is empty");
     }
-    else if (this.getFront().getNext() == this.getBack()) {
-      Node<T> temp = new Node<>(this.getFront().getValue());
-      this.setFront(this.getFront().getNext());
+    else if (this.front.getNext() == this.back) {
+      Node<T> temp = new Node<>(this.front.getValue());
+      this.front = this.front.getNext();
       Node<T> newBack = new Node<>();
-      this.setBack(newBack);
-      this.getFront().setNext(this.getBack());
+      this.back = newBack;
+      this.front.setNext(this.back);
       return temp.getValue();
     }
     else {
-      Node<T> temp = new Node<>(this.getFront().getValue());
-      this.setFront(this.getFront().getNext());
+      Node<T> temp = new Node<>(this.front.getValue());
+      this.front = this.front.getNext();
       return temp.getValue();
     }
   }
 
   public T peek() {
-    return this.getFront().getValue();
+    if (this.isEmpty()) {
+      throw new NoSuchElementException("you can't peek an empty queue");
+    } else {
+      return this.front.getValue();
+    }
   }
 
   public boolean isEmpty() {
-    return this.getFront().getValue() == null;
+    return this.front.getValue() == null;
   }
 }

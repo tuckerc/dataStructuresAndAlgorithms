@@ -5,6 +5,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.NoSuchElementException;
+
 public class StackTest {
 
   Stack<Integer> emptyStack = new Stack<>();
@@ -19,43 +21,32 @@ public class StackTest {
     multipleValueStack.push(30);
   }
 
-  @Test
-  public void testConstructor() {
-    Assert.assertNull(emptyStack.getTop());
+  @Test (expected = NoSuchElementException.class)
+  public void testEmptyConstructor() {
+    emptyStack.peek();
   }
 
   @Test
   public void testSinglePush() {
-    Assert.assertEquals((Integer) 1, singleValueStack.getTop().getValue());
+    Assert.assertEquals((Integer) 1, singleValueStack.peek());
   }
 
   @Test
   public void testMultiplePush() {
-    Assert.assertEquals((Integer) 30, multipleValueStack.getTop().getValue());
+    Assert.assertEquals((Integer) 30, multipleValueStack.peek());
   }
 
   @Test
   public void testSinglePop() {
-    Integer actual = null;
-    try {
-      actual = singleValueStack.pop();
-    } catch (IndexOutOfBoundsException e) {
-      System.out.println("you can't pop from an empty stack " + e);
-      e.printStackTrace();
-    }
+    Integer actual = actual = singleValueStack.pop();
     Assert.assertEquals((Integer) 1, actual);
   }
 
   @Test
   public void testMultiplePop() {
-    try {
-      multipleValueStack.pop();
-      multipleValueStack.pop();
-      multipleValueStack.pop();
-    } catch (IndexOutOfBoundsException e) {
-      System.out.println("you can't pop from an empty stack " + e);
-      e.printStackTrace();
-    }
+    multipleValueStack.pop();
+    multipleValueStack.pop();
+    multipleValueStack.pop();
     Assert.assertFalse(multipleValueStack.isEmpty());
   }
 

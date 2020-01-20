@@ -1,5 +1,7 @@
 package code401Challenges.stacksandqueues;
 
+import java.util.NoSuchElementException;
+
 public class Stack<T> {
 
   private Node<T> top;
@@ -8,39 +10,35 @@ public class Stack<T> {
     this.top = null;
   }
 
-  public Node<T> getTop() {
-    return this.top;
-  }
-
-  public void setTop(Node<T> newTop) {
-    this.top = newTop;
-  }
-
   public void push(T val) {
     Node<T> newNode = new Node<>(val);
-    Node<T> temp = this.getTop();
-    this.setTop(newNode);
-    this.getTop().setNext(temp);
+    Node<T> temp = this.top;
+    this.top = newNode;
+    this.top.setNext(temp);
   }
 
   public T pop() {
     if (this.isEmpty()) {
-      throw new IndexOutOfBoundsException("unable to pop from an empty stack");
+      throw new NoSuchElementException("unable to pop from an empty stack");
     }
-    Node<T> temp = this.getTop();
-    if (this.getTop().getNext() == null) {
-      this.setTop(new Node<T>());
+    Node<T> temp = this.top;
+    if (this.top.getNext() == null) {
+      this.top = new Node<T>();
     } else {
-      this.setTop(this.getTop().getNext());
+      this.top = this.top.getNext();
     }
     return temp.getValue();
   }
 
   public T peek() {
-    return this.getTop().getValue();
+    if (this.isEmpty()) {
+      throw new NoSuchElementException("cannot peek on an empty stack");
+    } else {
+      return this.top.getValue();
+    }
   }
 
   public boolean isEmpty() {
-    return this.getTop() == null;
+    return this.top == null;
   }
 }
