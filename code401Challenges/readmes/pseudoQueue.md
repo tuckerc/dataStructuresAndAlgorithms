@@ -15,3 +15,8 @@ Implement a queue data structure with a constructor and the following methods: e
 
 ## Link to Code
 [PseudoQueue.java](../src/main/java/code401Challenges/pseudoqueue/PseudoQueue.java)
+
+## Whiteboards
+![WB1](../assets/pseudoQueue1.jpg)
+![WB2](../assets/pseudoQueue2.jpg)
+![WB3](../assets/pseudoQueue3.jpg)
