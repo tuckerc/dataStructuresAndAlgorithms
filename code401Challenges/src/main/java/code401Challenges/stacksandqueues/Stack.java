@@ -23,7 +23,7 @@ public class Stack<T> {
     }
     Node<T> temp = this.top;
     if (this.top.getNext() == null) {
-      this.top = new Node<T>();
+      this.top = null;
     } else {
       this.top = this.top.getNext();
     }

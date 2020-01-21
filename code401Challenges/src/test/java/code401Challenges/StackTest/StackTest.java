@@ -47,7 +47,7 @@ public class StackTest {
     multipleValueStack.pop();
     multipleValueStack.pop();
     multipleValueStack.pop();
-    Assert.assertFalse(multipleValueStack.isEmpty());
+    Assert.assertTrue(multipleValueStack.isEmpty());
   }
 
   @Test (expected = Exception.class)
