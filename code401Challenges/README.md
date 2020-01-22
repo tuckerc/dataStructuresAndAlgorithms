@@ -10,3 +10,5 @@ This root README is where the links to daily challenges lives.
 * [Linked List](./readmes/linkedList.md)
 * [Stack](./readmes/stack.md)
 * [Queue](./readmes/queue.md)
+* [Pseudoqueue](./readmes/pseudoQueue.md)
+* [Animal Shelter](./readmes/animalShelter.md)
