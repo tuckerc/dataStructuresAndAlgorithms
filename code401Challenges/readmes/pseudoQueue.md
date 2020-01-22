@@ -1,4 +1,4 @@
-# Queue
+# Pseudoqueue
 Java implementation of a queue data structure using stacks rather than traditional list with front and rear nodes.
 
 ## Challenge
