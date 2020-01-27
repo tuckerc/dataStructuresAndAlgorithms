@@ -1,19 +1,18 @@
 # Trees
-Function used to validate that brackets ('(', '[', '{') in a code file are properly closed. The function takes in a string input and return a boolean indicating whether or not the braces are closed properly.
+Java package for binary trees and their methods
 
 ## Approach & Efficiency
-1. Develop tests for an empty string input, a string without braces, an expected true case, and an expected false case.
-2. Create a stack to store each brace.
-3. Traverse the string one character at a time.
-4. Store each opening brace on the stack.
-5. When a closing brace is encountered, pop the top brace off the stack.
-6. If the closing brace does not match the popped opening brace, return false.
-7. If the stack is not empty after traversal, return false.
-8. If the stack is empty after traversal, return true.
-7. Test
+1. Create a Node class that has properties for the value stored in the node, the left child node, and the right child node.
+2. Create a BinaryTree class
+   * Define a method for each of the depth first traversals called preOrder, inOrder, and postOrder which returns an array of the values, ordered appropriately.
+3. Any exceptions or errors that come from your code should be semantic, capturable errors. For example, rather than a default error thrown by your language, your code should raise/throw a custom, semantic error that describes what went wrong in calling the methods you wrote for this lab.
+   
+4. Create a BinarySearchTree class
+   * Define a method named add that accepts a value, and adds a new node with that value in the correct location in the binary search tree.
+   * Define a method named contains that accepts a value, and returns a boolean indicating whether or not the value is in the tree at least once.
+5. Test
 
 ## Link to Code
-* [MultiBracketValidation.java](../src/main/java/code401Challenges/utilities/MultiBracketValidation.java)
-
-## Whiteboards
-![WB1](../assets/multiBracketValidation.jpg)
+* [Node.java](../src/main/java/code401Challenges/tree/Node.java)
+* [BinaryTree.java](../src/main/java/code401Challenges/tree/BinaryTree.java)
+* [BinarySearchTree.java](../src/main/java/code401Challenges/tree/BinarySearchTree.java)

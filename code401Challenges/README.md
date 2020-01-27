@@ -13,3 +13,4 @@ This root README is where the links to daily challenges lives.
 * [Pseudoqueue](./readmes/pseudoQueue.md)
 * [Animal Shelter](./readmes/animalShelter.md)
 * [Multi Bracket Validation](./readmes/multiBracketValidation.md)
+* [Binary Trees](./readmes/tree.md)
