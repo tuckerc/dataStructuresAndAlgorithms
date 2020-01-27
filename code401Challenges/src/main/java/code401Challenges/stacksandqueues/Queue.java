@@ -57,4 +57,15 @@ public class Queue<T> {
   public boolean isEmpty() {
     return this.front.getValue() == null;
   }
+
+  @Override
+  public String toString() {
+    String returnString = "" + this.front.getValue();
+    Node<T> currentNode = this.front.getNext();
+    while(currentNode != null) {
+      returnString += " => " + currentNode.getValue();
+      currentNode = currentNode.getNext();
+    }
+    return returnString;
+  }
 }
