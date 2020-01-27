@@ -42,6 +42,7 @@ public class BinaryTree<T> {
   private void _inOrderRecurse(Node<T> root, Queue<T> values) {
     if(root.getLeft() != null) _preOrderRecurse(root.getLeft(), values);
     values.enqueue(root.getValue());
+    
     if (root.getRight() != null) _preOrderRecurse(root.getRight(), values);
   }
 
