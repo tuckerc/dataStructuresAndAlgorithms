@@ -40,10 +40,10 @@ public class BinaryTree<T> {
   }
 
   private void _inOrderRecurse(Node<T> root, Queue<T> values) {
-    if(root.getLeft() != null) _preOrderRecurse(root.getLeft(), values);
+    if(root.getLeft() != null) _inOrderRecurse(root.getLeft(), values);
     values.enqueue(root.getValue());
-    
-    if (root.getRight() != null) _preOrderRecurse(root.getRight(), values);
+
+    if (root.getRight() != null) _inOrderRecurse(root.getRight(), values);
   }
 
   public Queue<T> postOrder() {
@@ -53,8 +53,8 @@ public class BinaryTree<T> {
   }
 
   private void _postOrderRecurse(Node<T> root, Queue<T> values) {
-    if(root.getLeft() != null) _preOrderRecurse(root.getLeft(), values);
-    if (root.getRight() != null) _preOrderRecurse(root.getRight(), values);
+    if(root.getLeft() != null) _postOrderRecurse(root.getLeft(), values);
+    if (root.getRight() != null) _postOrderRecurse(root.getRight(), values);
     values.enqueue(root.getValue());
   }
 }

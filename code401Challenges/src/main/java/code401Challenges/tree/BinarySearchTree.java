@@ -27,18 +27,22 @@ public class BinarySearchTree<T extends Comparable<T>> extends BinaryTree<T> {
   }
 
   public boolean contains(T val) {
-    T foundVal = contains(val, this.getRoot());
-    if(foundVal != null) return true;
-    return false;
+    return contains(val, this.getRoot());
   }
 
-  private T contains(T val, Node<T> root) {
-    if(val.compareTo(root.getValue()) < 0) {
-      contains(val, root.getLeft());
+  private boolean contains(T val, Node<T> root) {
+    if(root == null) {
+      return false;
+    }
+    else if(val.compareTo(root.getValue()) == 0) {
+      return true;
+    }
+    else if(val.compareTo(root.getValue()) < 0) {
+      return contains(val, root.getLeft());
     }
     else if(val.compareTo(root.getValue()) > 0) {
-      contains(val, root.getRight());
+      return contains(val, root.getRight());
     }
-    return root.getValue();
+    return false;
   }
 }

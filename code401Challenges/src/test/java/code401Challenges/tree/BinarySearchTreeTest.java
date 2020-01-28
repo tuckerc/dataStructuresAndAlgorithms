@@ -40,11 +40,27 @@ public class BinarySearchTreeTest {
 
   @Test
   public void testPreOrder() {
-    System.out.println(intBST.preOrder());
+    assertEquals("5 => 3 => 1 => 2 => 6 => 9 => 7", intBST.preOrder().toString());
+    assertEquals("carrot => apple => adam => banana => potato => porcupine => food => dog => tomato", stringBST.preOrder().toString());
   }
 
   @Test
   public void testInOrder() {
-    System.out.println(intBST.inOrder());
+    assertEquals("1 => 2 => 3 => 5 => 6 => 7 => 9", intBST.inOrder().toString());
+    assertEquals("adam => apple => banana => carrot => dog => food => porcupine => potato => tomato", stringBST.inOrder().toString());
+  }
+
+  @Test
+  public void testPostOrder() {
+    assertEquals("2 => 1 => 3 => 7 => 9 => 6 => 5", intBST.postOrder().toString());
+    assertEquals("adam => banana => apple => dog => food => porcupine => tomato => potato => carrot", stringBST.postOrder().toString());
+  }
+
+  @Test
+  public void testContains() {
+    assertTrue(intBST.contains(9));
+    assertTrue(stringBST.contains("food"));
+    assertFalse(intBST.contains(900));
+    assertFalse(stringBST.contains("oreo"));
   }
 }

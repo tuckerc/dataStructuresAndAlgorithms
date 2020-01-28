@@ -6,11 +6,7 @@ public class Node<T> {
   private Node<T> left;
   private Node<T> right;
 
-  public Node() {
-    this.value = null;
-    this.left = null;
-    this.right = null;
-  }
+  public Node() {}
 
   public Node(T value) {
     this.value = value;
