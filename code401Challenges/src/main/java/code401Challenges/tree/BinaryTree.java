@@ -10,6 +10,10 @@ public class BinaryTree<T> {
     this.root = new Node<T>();
   }
 
+  public BinaryTree(Node<T> root) {
+    this.root = root;
+  }
+
   public Node<T> getRoot() {
     if(this.root == null) {
       return null;
