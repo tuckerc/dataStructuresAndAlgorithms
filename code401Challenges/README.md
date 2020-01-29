@@ -14,3 +14,4 @@ This root README is where the links to daily challenges lives.
 * [Animal Shelter](./readmes/animalShelter.md)
 * [Multi Bracket Validation](./readmes/multiBracketValidation.md)
 * [Binary Trees](./readmes/tree.md)
+* [Fizz Buzz Tree](./readmes/FizzBuzzTree.md)
