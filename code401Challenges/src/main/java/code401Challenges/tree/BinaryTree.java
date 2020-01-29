@@ -25,6 +25,32 @@ public class BinaryTree<T> {
     this.root = root;
   }
 
+  public long getHeight() {
+    return _getHeight(this.getRoot());
+  }
+
+  private long _getHeight(Node<T> root) {
+    if (root == null) {
+      return 0;
+    } else {
+      long leftHeight = _getHeight(root.getLeft());
+      long rightHeight = _getHeight(root.getRight());
+
+      if (leftHeight > rightHeight) {
+        return leftHeight + 1;
+      } else {
+        return rightHeight + 1;
+      }
+    }
+  }
+
+  public Queue<T> breadthFirst() {
+    Queue<T> values = new Queue<>();
+    long height = getHeight();
+
+    return values;
+  }
+
   public Queue<T> preOrder() {
     Queue<T> values = new Queue<>();
     _preOrderRecurse(this.getRoot(), values);
