@@ -2,7 +2,7 @@ package code401Challenges.tree;
 
 import code401Challenges.stacksandqueues.Queue;
 
-public class BinaryTree<T> {
+public class BinaryTree<T extends Comparable<T>> {
 
   private Node<T> root;
 
@@ -23,6 +23,30 @@ public class BinaryTree<T> {
 
   public void setRoot(Node<T> root) {
     this.root = root;
+  }
+
+  public T findMaxValue() {
+    T maxValue = this.getRoot().getValue();
+    Queue<Node<T>> nodesToProcess = new Queue<>();
+    nodesToProcess.enqueue(this.getRoot());
+    Node<T> currentNode;
+    if (this.getRoot() != null) {
+      currentNode = this.getRoot();
+      nodesToProcess.enqueue(currentNode);
+    }
+    while (!nodesToProcess.isEmpty()) {
+      currentNode = nodesToProcess.dequeue();
+      if(currentNode.getValue().compareTo(maxValue) > 0) {
+        maxValue = currentNode.getValue();
+      }
+      if (currentNode.getLeft() != null) {
+        nodesToProcess.enqueue(currentNode.getLeft());
+      }
+      if (currentNode.getRight() != null) {
+        nodesToProcess.enqueue(currentNode.getRight());
+      }
+    }
+    return maxValue;
   }
 
   public Queue<T> breadthFirst() {
