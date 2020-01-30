@@ -39,6 +39,12 @@ public class BinarySearchTreeTest {
   }
 
   @Test
+  public void testDepthFrist() {
+    assertEquals("5 => 3 => 6 => 1 => 9 => 2 => 7", intBST.breadthFirst().toString());
+    assertEquals("carrot => apple => potato => adam => banana => porcupine => tomato => food => dog", stringBST.breadthFirst().toString());
+  }
+
+  @Test
   public void testPreOrder() {
     assertEquals("5 => 3 => 1 => 2 => 6 => 9 => 7", intBST.preOrder().toString());
     assertEquals("carrot => apple => adam => banana => potato => porcupine => food => dog => tomato", stringBST.preOrder().toString());
