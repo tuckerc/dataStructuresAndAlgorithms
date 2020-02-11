@@ -32,7 +32,7 @@ Sample array: [8, 4, 23, 42, 16, 15]
 | 5                  | 5   | 2   | 15     | 3                    | [4, 8, **16, 16**, 23, 42] |
 | 5                  | 5   | 1   | 15     |                      | [4, 8, **15**, 16, 23, 42] |
 
-Sorted Array: [4, 8, **15**, 16, 23, 42]
+Sorted Array: [4, 8, 15, 16, 23, 42]
 
 ## Efficiency
 * O(n^2) time complexity. The algorithm traverses n elements n times to complete the sort.
