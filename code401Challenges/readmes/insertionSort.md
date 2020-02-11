@@ -38,4 +38,10 @@ Sorted Array: [4, 8, 15, 16, 23, 42]
 * O(n^2) time complexity. The algorithm traverses n elements n times to complete the sort.
 * O(1) space complexity. The algorithm creates sorts the array in place.
 
+## Java Implementation
+[Insertion Sort](../src/main/java/code401Challenges/sort/Sort.java)
+
+## Tests
+[Insertion Sort Tests](../src/test/java/code401Challenges/sort/SortTest.java)
+
   
