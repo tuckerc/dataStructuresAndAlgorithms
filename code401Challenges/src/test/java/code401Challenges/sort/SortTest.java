@@ -53,4 +53,28 @@ public class SortTest {
         doubleSort.insertionSort();
         assertArrayEquals(new Double[]{-876.1, -34.5, 3.3, 66.234, 354.34, 865.33, 7643.2}, doubleArr);
     }
+
+    @Test
+    public void intSortMergeSortTest() {
+        intSort.mergeSort(intArr);
+        assertArrayEquals(new Integer[]{1, 2, 3, 6, 34, 76, 90}, intArr);
+    }
+
+    @Test
+    public void strSortMergeSortTest() {
+        strSort.mergeSort(strArr);
+        assertArrayEquals(new String[]{"bravo", "charlie", "delta", "juliet", "romeo", "tango"}, strArr);
+    }
+
+    @Test
+    public void emptySortMergeSortTest() {
+        emptySort.mergeSort(emptyArr);
+        assertArrayEquals(new Integer[]{}, emptyArr);
+    }
+
+    @Test
+    public void doubleSortMergeSortTest() {
+        doubleSort.mergeSort(doubleArr);
+        assertArrayEquals(new Double[]{-876.1, -34.5, 3.3, 66.234, 354.34, 865.33, 7643.2}, doubleArr);
+    }
 }
