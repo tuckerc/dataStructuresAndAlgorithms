@@ -1,4 +1,4 @@
-# Inserion Sort
+# Insertion Sort
 Insertion Sort is a sorting algorithm that iterates through the array from beginning to end. During each iteration, the current value is compared to the values before it until it either reaches the beginning of the array or it reaches a value that is less than the current value. When all iterations are complete, the array is in sorted order.
 
 ## Pseudocode
