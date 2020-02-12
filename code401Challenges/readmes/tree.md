@@ -19,3 +19,4 @@ Java package for binary trees and their methods
 
 ## Whiteboards
 * ![wb](../assets/breadthFirstTraversal.jpg)
+* ![wb](../assets/findMaxValueTree.jpg)
