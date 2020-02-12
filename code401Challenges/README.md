@@ -18,3 +18,4 @@ This root README is where the links to daily challenges lives.
 
 Sorting algorithms
 * [Insertion Sort](./readmes/insertionSort.md)
+* [Merge Sort](./readmes/mergesort.md)
