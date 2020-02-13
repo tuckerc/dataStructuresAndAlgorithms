@@ -85,6 +85,51 @@ public class Sort<T extends Comparable<T>> {
         }
     }
 
+    public void quicksort(T[] arr, int left, int right) {
+        if(left < right) {
+            // Partition the array by setting the position of the pivot value
+            int partitionIdx = partition(arr, left, right);
+
+            // sort the portion of the array to the left of the partition
+            quicksort(arr, left, partitionIdx - 1);
+
+            // sort the portion of the array to the right of the partition
+            quicksort(arr, partitionIdx + 1, right);
+        }
+    }
+
+    private int partition(T[] arr, int left, int right) {
+        // set the pivot value as the far right value
+        T pivot = arr[right];
+
+        // create a variable to track the largest index of the values lower
+        // than the pivot
+        int low = left - 1;
+
+        // loop from left to right swapping any values less than the pivot
+        // with the value immediately after the current low
+        for(int i = left; i < right; i++) {
+            if(arr[i].compareTo(pivot) < 0) {
+                low++;
+                swap(arr, i, low);
+            }
+        }
+
+        // swap the pivot value with the value immediately after the low value
+        // all values smaller than the pivot will be on the left, and
+        // all values greater than the pivot will be on the right
+        swap(arr, right, low + 1);
+
+        // return the new index of the pivot value
+        return low + 1;
+    }
+
+    private void swap(T[] arr, int i, int low) {
+        T temp = arr[i];
+        arr[i] = arr[low];
+        arr[low] = temp;
+    }
+
     public T[] getArr() {
         return arr;
     }

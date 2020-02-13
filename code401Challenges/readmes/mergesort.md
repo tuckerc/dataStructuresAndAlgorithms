@@ -56,8 +56,8 @@ Sample array: [8, 4, 23, 42, 16, 15]
 Sorted Array: [4, 8, 15, 16, 23, 42]
 
 ## Efficiency
-* O(n^2) time complexity. The algorithm traverses n elements n times to complete the sort.
-* O(nLogn) space complexity. The algorithm divides the array and each sub-array in half then takes linear time to merge each half.
+* O(nLogn) time complexity. The algorithm traverses n elements n times to complete the sort.
+* O(n) space complexity. The algorithm divides the array and each sub-array in half then takes linear time to merge each half.
 
 ## Java Implementation
 [Merge Sort](../src/main/java/code401Challenges/sort/Sort.java)
