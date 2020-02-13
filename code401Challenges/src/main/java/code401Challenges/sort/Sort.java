@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Sort<T extends Comparable<T>> {
 
-    T[] arr;
+    private T[] arr;
 
     public Sort(T[] arr) {
         this.arr = arr;
@@ -84,12 +84,6 @@ public class Sort<T extends Comparable<T>> {
             }
         }
     }
-
-    public void quickSort(T[] arr, int left, int right) {
-
-    }
-
-    private 
 
     public T[] getArr() {
         return arr;
