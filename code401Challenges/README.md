@@ -15,6 +15,7 @@ This root README is where the links to daily challenges lives.
 * [Multi Bracket Validation](./readmes/multiBracketValidation.md)
 * [Binary Trees](./readmes/tree.md)
 * [Fizz Buzz Tree](./readmes/FizzBuzzTree.md)
+* [Hashtable](./readmes/hashtable.md)
 
 Sorting algorithms
 * [Insertion Sort](./readmes/insertionSort.md)
