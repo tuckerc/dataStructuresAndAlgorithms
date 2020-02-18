@@ -19,7 +19,7 @@ public class HashtableTest {
     ages.add("Easton", 3);
     ages.add("Caden", 2);
 
-    favoriteFoods = new Hashtable<>(100);
+    favoriteFoods = new Hashtable<>(100, 20);
     favoriteFoods.add("Chase", "King Ranch chicken casserole");
     favoriteFoods.add("Danae", "chicken picatta");
     favoriteFoods.add("Wyatt", "chicken nuggets");
@@ -41,7 +41,7 @@ public class HashtableTest {
 
   @Test
   public void emptyHashtableTestSize() {
-    Assert.assertEquals()
+    Assert.assertEquals(16, emptyHashtable.getSize());
   }
 
   @Test

@@ -18,14 +18,14 @@ public class Hashtable<T> {
   public Hashtable(int size) {
     this.size = size;
     this.load = 0;
-    this.loadFactor = 0.5;
+    this.loadFactor = 0.75;
     this.table = new Vector<>(size);
   }
 
   public Hashtable() {
     this.size = 16;
     this.load = 0;
-    this.loadFactor = 0.5;
+    this.loadFactor = 0.75;
     this.table = new Vector<>(16);
   }
 
@@ -56,6 +56,7 @@ public class Hashtable<T> {
     }
     // add the value at the proper index
     table.add(this.hash(key), val);
+    load++;
   }
 
   public T get(String key) {
