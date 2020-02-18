@@ -66,4 +66,27 @@ public class HashtableTest {
   public void emptyHastableTestGet() {
     Assert.assertNull(emptyHashtable.get("Chase"));
   }
+
+  @Test
+  public void intHashtableTestContains() {
+    Assert.assertTrue(ages.contains("Chase"));
+    Assert.assertTrue(ages.contains("Danae"));
+    Assert.assertTrue(ages.contains("Wyatt"));
+    Assert.assertTrue(ages.contains("Easton"));
+    Assert.assertTrue(ages.contains("Caden"));
+  }
+
+  @Test
+  public void strHashtableTestContains() {
+    Assert.assertTrue(favoriteFoods.contains("Chase"));
+    Assert.assertTrue(favoriteFoods.contains("Danae"));
+    Assert.assertTrue(favoriteFoods.contains("Wyatt"));
+    Assert.assertTrue(favoriteFoods.contains("Easton"));
+    Assert.assertTrue(favoriteFoods.contains("Caden"));
+  }
+
+  @Test
+  public void emptyHashtableContains() {
+    Assert.assertFalse(emptyHashtable.contains("Chase"));
+  }
 }

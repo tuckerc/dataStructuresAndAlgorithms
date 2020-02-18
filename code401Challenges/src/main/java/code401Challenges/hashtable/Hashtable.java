@@ -1,18 +1,20 @@
 package code401Challenges.hashtable;
 
+import java.util.LinkedList;
 import java.util.Vector;
 
 public class Hashtable<T> {
   private int size;
   private int load;
   private double loadFactor;
-  private Vector<T> table;
+  private Vector<LinkedList<Entry<T>>> table;
 
   public Hashtable(int size, double loadFactor) {
     this.size = size;
     this.load = 0;
     this.loadFactor = loadFactor;
     this.table = new Vector<>(size);
+    this.table.setSize(size);
   }
 
   public Hashtable(int size) {
@@ -20,6 +22,7 @@ public class Hashtable<T> {
     this.load = 0;
     this.loadFactor = 0.75;
     this.table = new Vector<>(size);
+    this.table.setSize(size);
   }
 
   public Hashtable() {
@@ -27,6 +30,7 @@ public class Hashtable<T> {
     this.load = 0;
     this.loadFactor = 0.75;
     this.table = new Vector<>(16);
+    this.table.setSize(16);
   }
 
   private int hash(String key) {
@@ -36,35 +40,61 @@ public class Hashtable<T> {
     // iterate through letters to generate ASC
     double sum = 0;
     for (int i = 0; i < letters.length; i++) {
-      double power = Math.pow((int) letters[i], i);
+      double power = Math.pow((int) letters[i], i + 1);
       sum += power;
     }
-    return (int) (sum * 599) % this.size;
+    sum = (sum * 599) % this.size + 1;
+    return (int) sum;
   }
 
   private void resize() {
     this.size *= 2;
-    Vector<T> tempVector = new Vector<>(this.size);
-    tempVector.addAll(0, this.table);
-    this.table = tempVector;
+    LinkedList<Entry<T>> entries = new LinkedList<>();
+    for(LinkedList<Entry<T>> list : this.table) {
+      if(list != null) {
+        entries.addAll(0,list);
+      }
+    }
+    this.table.clear();
+    this.table.setSize(this.size);
+    for(Entry<T> entry : entries) {
+      this.add(entry.getKey(), entry.getVal());
+    }
   }
 
   public void add(String key, T val) {
     // resize table if greater than load factor
-    if(load > (table.size() * loadFactor)) {
+    if(load > (table.capacity() * loadFactor)) {
       this.resize();
     }
+
+    // get the linked list at given index
+    LinkedList<Entry<T>> ll = table.get(this.hash(key));
+    if(ll == null) {
+      ll = new LinkedList<>();
+    }
+    ll.add(new Entry<T>(key, val));
+
     // add the value at the proper index
-    table.add(this.hash(key), val);
+    table.set(this.hash(key), ll);
     load++;
   }
 
   public T get(String key) {
-    return this.table.get(this.hash(key));
+    LinkedList<Entry<T>> ll = this.table.get(this.hash(key));
+    if (ll != null) {
+      for(Entry<T> entry : ll) {
+        if(entry.getKey() == key) {
+          return entry.getVal();
+        }
+      }
+    }
+    return null;
   }
 
   public boolean contains(String key) {
-    return this.get(key) != null;
+    LinkedList<Entry<T>> ll = this.table.get(this.hash(key));
+    return ll != null;
   }
 
   public int getSize() {
