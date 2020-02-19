@@ -43,7 +43,7 @@ public class Hashtable<T> {
       double power = Math.pow((int) letters[i], i + 1);
       sum += power;
     }
-    sum = (sum * 599) % this.size + 1;
+    sum = (sum * 599) % this.size;
     return (int) sum;
   }
 
