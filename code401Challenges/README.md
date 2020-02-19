@@ -4,18 +4,22 @@ This is the directory for Code 401: Java data structures & algorithms. The comma
 
 This root README is where the links to daily challenges lives.
 
-* [Reverse an Array](./readmes/reverseArray.md)
-* [Shift an Array](./readmes/arrayShift.md)
-* [Array Binary Search](./readmes/binarySearch.md)
+Data Structures
 * [Linked List](./readmes/linkedList.md)
 * [Stack](./readmes/stack.md)
 * [Queue](./readmes/queue.md)
-* [Pseudoqueue](./readmes/pseudoQueue.md)
-* [Animal Shelter](./readmes/animalShelter.md)
-* [Multi Bracket Validation](./readmes/multiBracketValidation.md)
 * [Binary Trees](./readmes/tree.md)
-* [Fizz Buzz Tree](./readmes/FizzBuzzTree.md)
 * [Hashtable](./readmes/hashtable.md)
+
+Utilities
+* [Fizz Buzz Tree](./readmes/FizzBuzzTree.md)
+* [Animal Shelter](./readmes/animalShelter.md)
+* [Reverse an Array](./readmes/reverseArray.md)
+* [Shift an Array](./readmes/arrayShift.md)
+* [Array Binary Search](./readmes/binarySearch.md)
+* [Multi Bracket Validation](./readmes/multiBracketValidation.md)
+* [Pseudoqueue](./readmes/pseudoQueue.md)
+* [Repeated Word](./readmes/repeatedword.md)
 
 Sorting algorithms
 * [Insertion Sort](./readmes/insertionSort.md)
