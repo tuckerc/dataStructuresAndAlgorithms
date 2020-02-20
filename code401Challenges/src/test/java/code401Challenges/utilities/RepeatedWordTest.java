@@ -1,4 +1,4 @@
-package code401Challenges.repeatedword;
+package code401Challenges.utilities;
 
 import org.junit.Before;
 import org.junit.Test;
