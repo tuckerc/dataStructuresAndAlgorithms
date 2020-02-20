@@ -20,6 +20,7 @@ Utilities
 * [Multi Bracket Validation](./readmes/multiBracketValidation.md)
 * [Pseudoqueue](./readmes/pseudoQueue.md)
 * [Repeated Word](./readmes/repeatedword.md)
+* [Left Join](./readmes/leftjoin.md)
 
 Sorting algorithms
 * [Insertion Sort](./readmes/insertionSort.md)
