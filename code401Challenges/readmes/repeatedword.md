@@ -7,4 +7,4 @@ Function used to detect the first repeated word in a string.
 3. Test
 
 ## Link to Code
-* [RepeatedWord.java](../src/main/java/code401Challenges/repeatedword/RepeatedWord.java)
+* [RepeatedWord.java](../src/main/java/code401Challenges/utilities/RepeatedWord.java)
