@@ -10,6 +10,7 @@ Data Structures
 * [Queue](./readmes/queue.md)
 * [Binary Trees](./readmes/tree.md)
 * [Hashtable](./readmes/hashtable.md)
+* [Graph](./readmes/graph.md)
 
 Utilities
 * [Fizz Buzz Tree](./readmes/FizzBuzzTree.md)
