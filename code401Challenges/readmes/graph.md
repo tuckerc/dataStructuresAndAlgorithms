@@ -5,7 +5,8 @@ Java implementation of a graph data structure.
 Implement a hash table data structure with a constructor, getters and the following methods: addNode, addEdge, getNodes, getNeighbors, size.
 
 ## Approach & Efficiency
-1. Develop tests for each of the following
+1. Develop tests for each of the following:
+2. Define a generic Edge class with a weight and value of same type as graph node type.
 2. Define instance variables (size, HashMap of nodes and their neighbors with corresponding edges).
 3. Define constructors.
 4. Define getters.
