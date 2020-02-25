@@ -32,6 +32,7 @@ public class GraphTest {
     busStops.addNode(4);
     busStops.addNode(5);
     busStops.addNode(6);
+    busStops.addNode(44);
     busStops.addEdge(1, 2);
     busStops.addEdge(2, 3);
     busStops.addEdge(3, 4);
@@ -42,8 +43,7 @@ public class GraphTest {
   @Test
   public void sizeTest() {
     Assert.assertEquals(6, cities.getSize());
-    Assert.assertNotEquals(-43, cities.getSize());
-    Assert.assertEquals(6, busStops.getSize());
+    Assert.assertEquals(7, busStops.getSize());
     Assert.assertNotEquals(-109, busStops.getSize());
   }
 
@@ -65,5 +65,25 @@ public class GraphTest {
         busStops.getNeighbors(1).get(0).getValue());
     Assert.assertEquals(0,
         busStops.getNeighbors(6).size());
+  }
+
+  @Test
+  public void breadthFirstTest() {
+    Assert.assertEquals("Seattle => Spokane => Tacoma => Vancouver => Ellensburg",
+        cities.breadthFirstTraversal("Seattle").toString());
+    Assert.assertEquals("Spokane => Seattle => Ellensburg => Tacoma => Vancouver",
+        cities.breadthFirstTraversal("Spokane").toString());
+    Assert.assertEquals("Tacoma => Seattle => Vancouver => Spokane => Ellensburg",
+        cities.breadthFirstTraversal("Tacoma").toString());
+    Assert.assertEquals("Vancouver => Tacoma => Seattle => Spokane => Ellensburg",
+        cities.breadthFirstTraversal("Vancouver").toString());
+    Assert.assertEquals("Ellensburg => Seattle => Spokane => Tacoma => Vancouver",
+        cities.breadthFirstTraversal("Ellensburg").toString());
+    Assert.assertEquals("Kent => null", cities.breadthFirstTraversal("Kent").toString());
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void breadthFirstFailTest() {
+    cities.breadthFirstTraversal("Marysville");
   }
 }
