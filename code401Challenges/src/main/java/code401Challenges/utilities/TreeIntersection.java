@@ -1,9 +1,8 @@
-package code401Challenges.treeintersection;
+package code401Challenges.utilities;
 
 import code401Challenges.stacksandqueues.Queue;
 import code401Challenges.tree.BinarySearchTree;
 
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 

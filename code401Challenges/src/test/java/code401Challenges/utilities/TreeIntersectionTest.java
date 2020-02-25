@@ -1,4 +1,4 @@
-package code401Challenges.treeintersection;
+package code401Challenges.utilities;
 
 import code401Challenges.tree.BinarySearchTree;
 import org.junit.Before;
@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import java.util.Set;
 
-import static code401Challenges.treeintersection.TreeIntersection.treeIntersection;
+import static code401Challenges.utilities.TreeIntersection.treeIntersection;
 import static org.junit.Assert.*;
 
 public class TreeIntersectionTest {

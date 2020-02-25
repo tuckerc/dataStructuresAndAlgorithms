@@ -22,6 +22,7 @@ Utilities
 * [Pseudoqueue](./readmes/pseudoQueue.md)
 * [Repeated Word](./readmes/repeatedword.md)
 * [Left Join](./readmes/leftjoin.md)
+* [Tree Intersections](./readmes/tree_intersection.md)
 
 Sorting algorithms
 * [Insertion Sort](./readmes/insertionSort.md)

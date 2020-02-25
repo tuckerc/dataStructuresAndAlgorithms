@@ -7,4 +7,7 @@ Function used to identify the values in two binary trees that are the same.
 3. Test
 
 ## Link to Code
-* [RepeatedWord.java](../src/main/java/code401Challenges/utilities/RepeatedWord.java)
+* [TreeIntersection.java](../src/main/java/code401Challenges/utilities/TreeIntersection.java)
+
+## Link to Tests
+* [TreeIntersectionTest.java](../src/test/java/code401Challenges/utilities/TreeIntersectionTest.java)
