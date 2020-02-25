@@ -2,8 +2,6 @@ package code401Challenges.tree;
 
 public class BinarySearchTree<T extends Comparable<T>> extends BinaryTree<T> {
 
-
-
   public void add(T val) {
     add(val, this.getRoot());
   }
