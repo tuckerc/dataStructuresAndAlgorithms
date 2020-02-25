@@ -6,7 +6,7 @@ public class Queue<T> {
 
   private Node<T> front;
   private Node<T> back;
-
+  private int size;
 
   public Queue() {
     this.front = new Node<>();
