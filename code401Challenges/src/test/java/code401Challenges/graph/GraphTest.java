@@ -117,6 +117,11 @@ public class GraphTest {
     Assert.assertEquals("Kent => null",
         cities.depthFirstTraversal("Kent").toString());
   }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void depthFirstFailTest() {
+    cities.depthFirstTraversal("Marysville");
+  }
   
   @Test
   public void isPathTest() {
