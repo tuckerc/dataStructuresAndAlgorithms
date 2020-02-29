@@ -4,6 +4,8 @@ public class Edge<T, W> {
   private T value;
   private W weight;
 
+  public Edge() {}
+
   public Edge(T value) {
     this.value = value;
   }

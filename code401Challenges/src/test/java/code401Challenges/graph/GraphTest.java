@@ -7,6 +7,7 @@ import org.junit.Test;
 public class GraphTest {
 
   Graph<String, Double> cities;
+  Graph<String, Integer> airports;
   Graph<Integer, Double> busStops;
 
   @Before
@@ -24,6 +25,20 @@ public class GraphTest {
     cities.addEdge("Seattle", "Ellensburg", 107.2);
     cities.addEdge("Ellensburg", "Spokane", 172.4);
     cities.addNode("Kent");
+
+    airports = new Graph<>();
+    airports.addNode("Seattle");
+    airports.addNode("Spokane");
+    airports.addEdge("Seattle", "Spokane", 228);
+    airports.addNode("Tacoma");
+    airports.addEdge("Seattle", "Tacoma", 33);
+    airports.addNode("Vancouver");
+    airports.addEdge("Tacoma", "Vancouver", 112);
+    airports.addEdge("Vancouver", "Seattle", 165);
+    airports.addNode("Ellensburg");
+    airports.addEdge("Seattle", "Ellensburg", 107);
+    airports.addEdge("Ellensburg", "Spokane", 172);
+    airports.addNode("Kent");
 
     busStops = new Graph<>();
     busStops.addNode(1);
@@ -85,5 +100,39 @@ public class GraphTest {
   @Test(expected = IllegalArgumentException.class)
   public void breadthFirstFailTest() {
     cities.breadthFirstTraversal("Marysville");
+  }
+
+  @Test
+  public void depthFirstTest() {
+    Assert.assertEquals("Seattle => Spokane => Tacoma => Vancouver => Ellensburg",
+        cities.depthFirstTraversal("Seattle").toString());
+    Assert.assertEquals("Spokane => Seattle => Ellensburg => Tacoma => Vancouver",
+        cities.depthFirstTraversal("Spokane").toString());
+    Assert.assertEquals("Tacoma => Seattle => Vancouver => Spokane => Ellensburg",
+        cities.depthFirstTraversal("Tacoma").toString());
+    Assert.assertEquals("Vancouver => Tacoma => Seattle => Spokane => Ellensburg",
+        cities.depthFirstTraversal("Vancouver").toString());
+    Assert.assertEquals("Ellensburg => Seattle => Spokane => Tacoma => Vancouver",
+        cities.depthFirstTraversal("Ellensburg").toString());
+    Assert.assertEquals("Kent => null",
+        cities.depthFirstTraversal("Kent").toString());
+  }
+  
+  @Test
+  public void isPathTest() {
+    Assert.assertEquals("True, $33", Graph.isPath(airports, new String[]{"Seattle", "Tacoma"}));
+    Assert.assertEquals("True, $112", Graph.isPath(airports, new String[]{"Tacoma", "Vancouver"}));
+    Assert.assertEquals("True, $172", Graph.isPath(airports, new String[]{"Spokane", "Ellensburg"}));
+    Assert.assertEquals("True, $145", Graph.isPath(airports, new String[]{"Seattle", "Tacoma", "Vancouver"}));
+    Assert.assertEquals("True, $393", Graph.isPath(airports, new String[]{"Spokane", "Seattle", "Vancouver"}));
+    Assert.assertEquals("True, $279", Graph.isPath(airports, new String[]{"Seattle", "Ellensburg", "Spokane"}));
+    Assert.assertEquals("True, $848", Graph.isPath(airports, new String[]{"Vancouver", "Tacoma", "Seattle", "Ellensburg", "Spokane",
+        "Ellensburg", "Seattle", "Tacoma", "Vancouver"}));
+    Assert.assertEquals("False", Graph.isPath(airports, new String[]{}));
+    Assert.assertEquals("False", Graph.isPath(airports, new String[]{"Seattle"}));
+    Assert.assertEquals("False", Graph.isPath(airports, new String[]{"Kent"}));
+    Assert.assertEquals("False", Graph.isPath(airports, new String[]{"Kent", "Seattle"}));
+    Assert.assertEquals("False", Graph.isPath(airports, new String[]{"Tacoma", "Spokane"}));
+    Assert.assertEquals("False", Graph.isPath(airports, new String[]{"Austin", "Seattle"}));
   }
 }
